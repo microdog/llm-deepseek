@@ -27,6 +27,12 @@ Not published to PyPI — install directly from git:
 llm install git+https://github.com/microdog/llm-deepseek.git
 ```
 
+If `llm` itself is managed with `uv tool`, install the plugin into the same tool environment:
+
+```bash
+uv tool install -w git+https://github.com/microdog/llm-deepseek.git llm
+```
+
 ## Usage
 
 Obtain a [DeepSeek API key](https://platform.deepseek.com/api_keys) and save it:
