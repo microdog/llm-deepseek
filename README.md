@@ -1,8 +1,8 @@
 # llm-deepseek
 
-[![Changelog](https://img.shields.io/github/v/release/dannyob/llm-deepseek?include_prereleases&label=changelog)](https://github.com/dannyob/llm-deepseek/releases)
-[![Tests](https://github.com/dannyob/llm-deepseek/actions/workflows/test.yml/badge.svg)](https://github.com/dannyob/llm-deepseek/actions/workflows/test.yml)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/dannyob/llm-deepseek/blob/main/LICENSE)
+[![Changelog](https://img.shields.io/github/v/release/microdog/llm-deepseek?include_prereleases&label=changelog)](https://github.com/microdog/llm-deepseek/releases)
+[![Tests](https://github.com/microdog/llm-deepseek/actions/workflows/test.yml/badge.svg)](https://github.com/microdog/llm-deepseek/actions/workflows/test.yml)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/microdog/llm-deepseek/blob/main/LICENSE)
 
 DeepSeek V4.1 Flash and V4 Pro for the [LLM](https://llm.datasette.io/) CLI, with tool calling.
 
@@ -12,7 +12,9 @@ llm -m deepseek-v4-pro 'write a haiku about databases' \
   -o reasoning_effort high
 ```
 
-This is a fork of [abrasumente233/llm-deepseek](https://github.com/abrasumente233/llm-deepseek), which has stopped accepting PRs. It picks up two contributions that were never merged upstream:
+This is a fork of the original [rumisle/llm-deepseek](https://github.com/rumisle/llm-deepseek), maintained by [@microdog](https://github.com/microdog). The current tree inherits work from [dannyob/llm-deepseek](https://github.com/dannyob/llm-deepseek), which is itself a fork of the original. Both repositories have stopped accepting pull requests.
+
+The inherited work includes two contributions that were never merged upstream:
 
 - DeepSeek v4 models (`deepseek-v4-flash`, `deepseek-v4-pro`) plus the `thinking` and `reasoning_effort` options, by [@microdog](https://github.com/microdog) ([PR](https://github.com/rumisle/llm-deepseek/pull/5))
 - Tool calling for all DeepSeek models, by [@michaelmdeng](https://github.com/michaelmdeng) ([PR](https://github.com/rumisle/llm-deepseek/pull/3))
@@ -22,7 +24,7 @@ This is a fork of [abrasumente233/llm-deepseek](https://github.com/abrasumente23
 Not published to PyPI — install directly from git:
 
 ```bash
-llm install git+https://github.com/dannyob/llm-deepseek.git
+llm install git+https://github.com/microdog/llm-deepseek.git
 ```
 
 ## Usage
