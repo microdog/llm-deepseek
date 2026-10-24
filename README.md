@@ -4,12 +4,12 @@
 [![Tests](https://github.com/dannyob/llm-deepseek/actions/workflows/test.yml/badge.svg)](https://github.com/dannyob/llm-deepseek/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/dannyob/llm-deepseek/blob/main/LICENSE)
 
-DeepSeek v4 (and the older chat/coder/reasoner models) for the [LLM](https://llm.datasette.io/) CLI, with tool calling.
+DeepSeek V4.1 Flash and V4 Pro for the [LLM](https://llm.datasette.io/) CLI, with tool calling.
 
 ```bash
 llm -m deepseek-v4-pro 'write a haiku about databases' \
   -o thinking enabled \
-  -o reasoning_effort xhigh
+  -o reasoning_effort high
 ```
 
 This is a fork of [abrasumente233/llm-deepseek](https://github.com/abrasumente233/llm-deepseek), which has stopped accepting PRs. It picks up two contributions that were never merged upstream:
@@ -37,12 +37,18 @@ llm keys set deepseek
 Run `llm models` to see registered models. Then:
 
 ```bash
-llm -m deepseek-chat 'five great names for a pet ocelot'
-llm -m deepseek-reasoner 'solve \int \frac{\ln(x)\arctan(x)}{x^2+1} dx'
-llm -m deepseek-coder 'how to reverse a linked list in python'
-llm -m deepseek-v4-flash 'summarize the benefits of unit tests'
+llm -m deepseek-flash 'five great names for a pet ocelot'
+llm -m deepseek-v4-pro 'solve \int \frac{\ln(x)\arctan(x)}{x^2+1} dx'
+llm -m deepseek-flash 'how to reverse a linked list in python'
 llm -m deepseek-v4-pro 'explain how vector databases work'
 ```
+
+`deepseek-flash` is the current V4.1 Flash model (1M context, text and image
+input). `deepseek-v4-pro` is the V4 Pro model. The legacy names
+`deepseek-v4-flash` and `deepseek-v4-flash-vision-exp` are also registered for
+compatibility; the API routes them to V4.1 Flash. The discontinued
+`deepseek-chat`, `deepseek-reasoner`, and `deepseek-coder` names are not
+registered.
 
 Standard OpenAI-compatible options work (`max_tokens`, `top_p`, `stop`, `json_object`), plus DeepSeek-specific ones (`thinking`, `reasoning_effort`).
 

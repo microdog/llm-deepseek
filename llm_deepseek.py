@@ -13,11 +13,11 @@ except ImportError:
     HAS_ASYNC = False
 
 MODELS = (
-    "deepseek-chat",
-    "deepseek-coder",
-    "deepseek-reasoner",
-    "deepseek-v4-flash",
+    "deepseek-flash",
     "deepseek-v4-pro",
+    # Legacy names still accepted by the API and routed to DeepSeek V4.1 Flash
+    "deepseek-v4-flash",
+    "deepseek-v4-flash-vision-exp",
 )
 
 

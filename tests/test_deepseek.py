@@ -16,9 +16,13 @@ def test_plugin_is_installed():
     assert "llm_deepseek" in names
 
 
-def test_models_include_deepseek_v4_models():
-    assert "deepseek-v4-flash" in llm_deepseek.MODELS
-    assert "deepseek-v4-pro" in llm_deepseek.MODELS
+def test_models_match_current_deepseek_api():
+    assert llm_deepseek.MODELS == (
+        "deepseek-flash",
+        "deepseek-v4-pro",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp",
+    )
 
 
 def test_register_models_requires_api_key(monkeypatch):
@@ -75,7 +79,7 @@ def test_deepseek_options_build_request_kwargs():
 
 
 def test_deepseek_options_preserve_openai_compatible_options():
-    model = llm_deepseek.DeepSeekChat("deepseek-chat")
+    model = llm_deepseek.DeepSeekChat("deepseek-flash")
     prompt = llm.Prompt(
         "hello",
         model,
@@ -96,7 +100,7 @@ def test_deepseek_options_preserve_openai_compatible_options():
 
 
 def test_deepseek_options_reject_invalid_thinking_type():
-    model = llm_deepseek.DeepSeekChat("deepseek-v4-flash")
+    model = llm_deepseek.DeepSeekChat("deepseek-flash")
 
     with pytest.raises(ValueError):
         model.Options(thinking="maybe")
